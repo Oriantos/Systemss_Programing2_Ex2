@@ -2,17 +2,31 @@
 #include "SquareMat.h"  // Your header file
 using namespace Matrix;
 
+double** create_array(int n, std::initializer_list<std::initializer_list<double>> init) {
+    double** arr = new double*[n];
+    int i = 0;
+    for (auto& row : init) {
+        arr[i] = new double[n];
+        int j = 0;
+        for (auto& val : row) {
+            arr[i][j++] = val;
+        }
+        ++i;
+    }
+    return arr;
+}
+
 int main() {
     try {
-        SquareMat mat1({
+        SquareMat mat1(2, create_array(2, {
             {1.0, 2.0},
             {3.0, 4.0}
-        });
+        }));
 
-        SquareMat mat2({
+        SquareMat mat2(2, create_array(2, {
             {5.0, 6.0},
             {7.0, 8.0}
-        });
+        }));
 
         std::cout << "Matrix 1:\n" << mat1;
         std::cout << "Matrix 2:\n" << mat2;

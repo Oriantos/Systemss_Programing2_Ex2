@@ -309,4 +309,8 @@ namespace Matrix {
         }
         return out;
     }
+
+    SquareMat operator*(double scalar, const SquareMat &mat){
+        return mat*scalar;
+    }
 } // Matrix

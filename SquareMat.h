@@ -24,7 +24,7 @@ namespace Matrix {
 
         double recDet() const;
 
-        SquareMat SquareMat::minor(int col, int row) const;
+        SquareMat minor(int col, int row) const;
 
     public:
         SquareMat(int size, double **data);
@@ -41,7 +41,7 @@ namespace Matrix {
 
         SquareMat &operator=(const SquareMat &other);
 
-        SquareMat &operator=(SquareMat &&other);
+        SquareMat &operator=(SquareMat &other);
 
         double *operator[](int row);
 
